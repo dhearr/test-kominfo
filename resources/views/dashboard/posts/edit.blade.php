@@ -11,7 +11,7 @@
         @csrf
         <div class="mb-4 sm:grid-cols-2">
             <div>
-                <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                 <input type="text" name="title" id="title"
                     class="form-control mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-300 focus:border-emerald-300 block w-full p-2.5 @error('title') is-invalid @enderror"
                     placeholder="Create your title . . ." value="{{ old('title', $post->title) }}">
@@ -22,7 +22,7 @@
                 @enderror
             </div>
             <div>
-                <label for="slug" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug</label>
+                <label for="slug" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Name</label>
                 <input type="text" name="slug" id="slug"
                     class="mb-2 bg-gray-50 border border-gray-300 focus:ring-white focus:border-white text-gray-900 text-sm rounded-lg block w-full p-2.5 @error('slug') is-invalid @enderror"
                     value="{{ old('slug', $post->slug) }}">
@@ -65,7 +65,7 @@
                 @enderror
             </div>
             <div class="mb-2"><label for="body"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Body</label>
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sampel</label>
                 @error('body')
                     <p class="text-red-600">{{ $message }}</p>
                 @enderror

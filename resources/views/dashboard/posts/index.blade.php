@@ -3,7 +3,7 @@
 @section('container')
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 ml-5 mb-3 border-bottom">
-        <h1 class="h2 text-gray-900 dark:text-white">My Posts</h1>
+        <h1 class="h2 text-gray-900 dark:text-white">Pendafataran Pemeriksaan Sampel</h1>
     </div>
     <!-- Start block -->
     <section class="dark:bg-slate-800 p-3 sm:p-5 antialiased">
@@ -38,33 +38,10 @@
                 class="dark:bg-gray-800 relative shadow-md dark:shadow-gray-700 dark:shadow-sm sm:rounded-lg overflow-hidden">
                 <div
                     class="flex flex-col md:flex-row md:items-center md:justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
-                    <div class="flex-1 flex items-center space-x-2">
-                        <h5>
-                            <span class="text-gray-500">All Posts:</span>
-                            <span class="text-gray-900 dark:text-white">{{ auth()->user()->name }}</span>
-                        </h5>
-                    </div>
                 </div>
                 <div
                     class="flex flex-col md:flex-row items-stretch md:items-center md:space-x-3 space-y-3 md:space-y-0 justify-between mx-4 py-4 border-t">
-                    <div class="w-full md:w-1/2">
-                        <form class="flex items-center">
-                            <label for="simple-search" class="sr-only">Search</label>
-                            <div class="relative w-full">
-                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                </div>
-                                <input type="text" id="simple-search" placeholder="Search Posts..." required=""
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-300 focus:border-cyan-300 block w-full pl-10 p-2 dark:bg-gray-300">
-                                <button type="submit"
-                                    class="text-white absolute right-1 bottom-2 bg-cyan-500 hover:bg-cyan-600 font-medium rounded-lg text-sm px-2 py-1"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-search" viewBox="0 0 16 16">
-                                        <path
-                                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                    </svg></button>
-                            </div>
-                        </form>
-                    </div>
+
                     <div
                         class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                         <a href="/dashboard/posts/create">
@@ -75,7 +52,7 @@
                                     <path clip-rule="evenodd" fill-rule="evenodd"
                                         d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                                 </svg>
-                                Create Posts
+                                Add
                             </button></a>
                     </div>
                 </div>
@@ -83,8 +60,8 @@
                     <table class="w-full text-sm text-left text-gray-500">
                         <thead class="text-xs text-gray-900 uppercase bg-cyan-50 dark:bg-gray-700">
                             <tr>
-                                <th scope="col" class="p-4 dark:text-white">#</th>
-                                <th scope="col" class="p-4 dark:text-white">Title</th>
+                                <th scope="col" class="p-4 dark:text-white">No</th>
+                                <th scope="col" class="p-4 dark:text-white">Name</th>
                                 <th scope="col" class="p-4 dark:text-white">Category</th>
                                 <th scope="col" class="p-4 dark:text-white">Action</th>
                             </tr>
@@ -166,8 +143,7 @@
                                                         d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                 </svg>
                                                 <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are
-                                                    you sure you want to delete
-                                                    this posts?</h3>
+                                                    you sure you want to delete?</h3>
                                                 <form action="/dashboard/posts/{{ $post->slug }}" method="post"
                                                     class="inline-flex">
                                                     @method('delete')

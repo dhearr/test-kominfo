@@ -68,6 +68,9 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 // Route Post Register
 Route::post('/register', [RegisterController::class, 'store']);
 
+// Route pemeriksaan sampel
+Route::resource('pemeriksaan-sampel', 'PemeriksaanSampelController');
+
 // Route Get Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard.index');
@@ -76,7 +79,7 @@ Route::get('/dashboard', function () {
 // Route Resource ('/dashboard/posts)
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
-Route::delete('/dashboard/posts/{post:slug}', [DashboardPostController::class,'destroy'])->middleware('auth');
+Route::delete('/dashboard/posts/{post:slug}', [DashboardPostController::class, 'destroy'])->middleware('auth');
 
 // Route Admin
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');

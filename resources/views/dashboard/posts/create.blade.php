@@ -3,25 +3,26 @@
 @section('container')
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center ml-5 pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Create Posts</h1>
+        <h1 class="h2">Pendaftaran</h1>
     </div>
 
     <form action="/dashboard/posts" method="post" class="ml-5 my-4" enctype="multipart/form-data">
         @csrf
         <div class="mb-4 sm:grid-cols-2">
             <div>
-                <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                 <input type="text" name="title" id="title" autofocus
                     class="form-control mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-300 focus:border-cyan-300 block w-full p-2.5 @error('title') is-invalid @enderror"
-                    placeholder="Create your title . . ." value="{{ old('title') }}">
+                    value="{{ old('title') }}">
                 @error('title')
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                         {{ $message }}
                     </div>
                 @enderror
             </div>
+
             <div>
-                <label for="slug" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug</label>
+                <label for="slug" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Name</label>
                 <input type="text" name="slug" id="slug"
                     class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 focus:ring-cyan-300 focus:border-cyan-300 text-sm rounded-lg block w-full p-2.5 @error('slug') is-invalid @enderror"
                     value="{{ old('slug') }}">
@@ -59,7 +60,7 @@
                 @enderror
             </div>
             <div class="mb-2"><label for="body"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Body</label>
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sampel</label>
                 @error('body')
                     <p class="text-xs text-red-600">{{ $message }}</p>
                 @enderror

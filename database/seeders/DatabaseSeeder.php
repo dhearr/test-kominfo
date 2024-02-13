@@ -17,36 +17,29 @@ class DatabaseSeeder extends Seeder
     {
 
         User::create([
-            'name' => 'Dhea Ramdani',
-            'username' => 'Dhea Ramdani',
-            'email' => 'dhea@gmail.com',
-            'password' => bcrypt('12345')
+            'name' => 'Admin',
+            'username' => 'Admin',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('admin')
+        ]);
+        // User::factory(1)->create();
+
+        Category::create([
+            'name' => 'Pasien',
+            'slug' => 'pasien'
         ]);
 
-        // User::create([
-        //     'name' => 'Afani Akhira',
-        //     'email' => 'afani@gmail.com',
-        //     'password' => bcrypt('12345')
+        // Category::create([
+        //     'name' => 'Design Graphic',
+        //     'slug' => 'design-graphic'
         // ]);
 
-        User::factory(3)->create();
+        // Category::create([
+        //     'name' => 'Sport',
+        //     'slug' => 'sport'
+        // ]);
 
-        Category::create([
-            'name' => 'Web Programing',
-            'slug' => 'web-programing'
-        ]);
-
-        Category::create([
-            'name' => 'Design Graphic',
-            'slug' => 'design-graphic'
-        ]);
-
-        Category::create([
-            'name' => 'Sport',
-            'slug' => 'sport'
-        ]);
-
-        Post::factory(20)->create();
+        // Post::factory(20)->create();
 
         // Post::create([
         //     'title' => 'Frontend Developer',

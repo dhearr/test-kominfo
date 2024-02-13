@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use PDF;
 
 use function Ramsey\Uuid\v1;
 
@@ -16,6 +17,10 @@ class DashboardPostController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function printPdf()
+    {
+    }
     public function index()
     {
         return view('dashboard.posts.index', [
@@ -46,7 +51,7 @@ class DashboardPostController extends Controller
             'body' => 'required'
         ]);
 
-        if($request->file('image')) {
+        if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('post-images');
         }
 
@@ -63,7 +68,7 @@ class DashboardPostController extends Controller
      */
     public function show(Post $post)
     {
-        if($post->author->id!==auth()->user()->id) {
+        if ($post->author->id !== auth()->user()->id) {
             abort(403);
         }
 
@@ -77,11 +82,11 @@ class DashboardPostController extends Controller
      */
     public function edit(Post $post)
     {
-        if($post->author->id!==auth()->user()->id) {
+        if ($post->author->id !== auth()->user()->id) {
             abort(403);
         }
 
-        return view('dashboard.posts.edit' ,[
+        return view('dashboard.posts.edit', [
             'post' => $post,
             'categories' => Category::all()
         ]);
@@ -94,18 +99,19 @@ class DashboardPostController extends Controller
     {
         $rules = [
             'title' => 'required|max:255',
+            // 'umur' => 'required',
             'category_id' => 'required',
             'image' => "image|file|max:1024",
             'body' => 'required'
         ];
 
-        if($request->slug != $post->slug) {
+        if ($request->slug != $post->slug) {
             $rules['slug'] = 'required|unique:posts';
         }
 
         $validatedData = $request->validate($rules);
 
-        if($request->file('image')) {
+        if ($request->file('image')) {
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
@@ -133,6 +139,5 @@ class DashboardPostController extends Controller
         Post::destroy($post->id);
 
         return redirect('/dashboard/posts')->with('success', 'Post has been Deleted!!');
-        
     }
 }

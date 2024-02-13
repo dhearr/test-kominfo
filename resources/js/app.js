@@ -3,8 +3,7 @@ import "flowbite";
 import { Datepicker, Input, initTE } from "tw-elements";
 initTE({ Datepicker, Input });
 
-// skills tabs
-import { Tabs } from "flowbite";
+
 
 // darkmode toggle
 const darkToggle = document.querySelector("#dark-toggle");

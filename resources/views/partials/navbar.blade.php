@@ -1,10 +1,7 @@
 {{-- navbar --}}
 <nav class="top-0 left-0 z-40 relative px-4 py-4 flex justify-between items-center bg-hero dark:bg-slate-900">
     <a class="text-2xl md:text-3xl text-sky-700 font-bold leading-none hidden lg:block" href="/">
-        D'<span class="relative inline-block px-2">
-            <div class="absolute inset-0 transform -skew-x-12 bg-cyan-500"></div>
-            <span class="relative text-white">Blogspot</span>
-        </span>
+        <img src="img/logo.png" alt="logo" width="100">
     </a>
 
     <div class="lg:hidden ">
@@ -27,16 +24,6 @@
                     d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
             </svg>
         </li>
-        {{-- <li><a class="text-sm text-gray-900 hover:text-gray-500" href="/about">About</a></li>
-        <li class="text-gray-300">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-            </svg>
-        </li> --}}
-        <li><a class="{{ request()->is('blog*') ? 'active' : '' }} rounded-full py-2 px-5 text-sm text-gray-900 hover:text-white hover:bg-cyan-500 dark:text-white"
-                href="/blog">Blog✨</a></li>
         @auth
             <li class="text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill"
@@ -47,7 +34,6 @@
             </li>
             <li><a class="text-sm text-gray-900 hover:text-gray-500" href="/dashboard">Dashboard</a></li>
         @endauth
-        {{-- <li><a class="text-sm text-gray-900 hover:text-gray-500" href="/categories">Category</a></li> --}}
     </ul>
     @auth
         <form class="hidden lg:inline-block" action="/logout" method="post">
@@ -61,8 +47,6 @@
     @guest
         <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-cyan-500 hover:bg-cyan-600 text-sm text-white font-semibold rounded-full transition duration-200"
             href="/login">Sign In</a>
-        {{-- <a class="hidden lg:inline-block py-2 px-6  bg-cyan-500  hover:bg-cyan-600 text-sm text-white rounded-full transition duration-200"
-            href="/register">Sign up</a> --}}
     @endguest
     {{-- toggle darkmode --}}
     <label class="relative inline-flex items-center cursor-pointer">
@@ -89,18 +73,7 @@
     <nav
         class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-hero overflow-y-auto dark:bg-slate-900">
         <div class="flex items-center mb-8">
-            <a class="mr-auto text-3xl text-sky-700 font-bold leading-none" href="/">
-                D'<span class="relative inline-block px-2">
-                    <div class="absolute inset-0 transform -skew-x-12 bg-cyan-500"></div>
-                    <span class="relative text-white">Blogspot</span>
-            </a>
-            <button class="navbar-close">
-                <svg class="h-6 w-6 text-cyan-500 cursor-pointer hover:text-cyan-600" xmlns="http://www.w3.org/2000/svg"
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
-            </button>
+            <img src="img/logo.png" alt="logo" width="100">
         </div>
         <div>
             <ul>
@@ -108,24 +81,13 @@
                     <a class="{{ request()->is('/') ? 'active' : '' }} block p-4 text-sm font-semibold text-gray-900 hover:bg-cyan-600 hover:text-white rounded-full dark:text-white"
                         href="/">Home</a>
                 </li>
-                {{-- <li class="mb-1">
-                    <a class="block p-4 text-sm font-semibold text-gray-900 hover:bg-blue-50 hover:text-gray-500 rounded"
-                        href="#">About</a>
-                </li> --}}
-                <li class="mb-1">
-                    <a class="{{ request()->is('blog') ? 'active' : '' }}  block p-4 text-sm font-semibold text-gray-900 hover:bg-cyan-600 hover:text-white rounded-full dark:text-white"
-                        href="/blog">Blog✨</a>
-                </li>
+
                 @auth
                     <li class="mb-1">
                         <a class="block p-4 text-sm font-semibold text-gray-900 hover:bg-blue-50 hover:text-gray-500 rounded dark:text-white"
                             href="/dashboard">Dashboard</a>
                     </li>
                 @endauth
-                {{-- <li class="mb-1">
-                    <a class="block p-4 text-sm font-semibold text-gray-900 hover:bg-blue-50 hover:text-gray-500 rounded"
-                        href="#">Category</a>
-                </li> --}}
             </ul>
         </div>
         <div class="mt-auto">
@@ -139,15 +101,12 @@
                     </form>
                 @endauth
                 @guest
-                    <a class="block px-4 py-3 mb-2 leading-loose bg-white hover:bg-gray-100 text-xs text-center text-gray-900 font-semibold bg-gray-100 rounded-xl"
+                    <a class="block px-4 py-3 mb-2 leading-loose bg-white hover:bg-gray-100 text-xs text-center text-gray-900 font-semibold rounded-xl"
                         href="/login">Sign in</a>
                     <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white bg-cyan-500 hover:bg-cyan-600  rounded-xl"
                         href="/register">Sign Up</a>
                 @endguest
             </div>
-            <p class="my-4 text-xs text-center text-gray-400">
-                <span>Copyright © 2023 D'Blogspot</span>
-            </p>
         </div>
     </nav>
 </div>
